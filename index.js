@@ -5,6 +5,7 @@ app.use(express.json());
 app.use(cors());
 const user = require('./src/api/routes/user');
 const search = require('./src/api/routes/search');
+const chat = require('./src/api/routes/chat');
 const sequelize = require('./db');
 
 const syncDB = async() => {
@@ -19,6 +20,7 @@ syncDB()
 
 app.use("/api/v1/user", user);
 app.use("/api/v1/find",search)
+app.use("/api/v1/chat",chat)
 
 const port = 5000;
 app.listen(port, () => {

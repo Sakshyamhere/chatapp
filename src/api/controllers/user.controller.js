@@ -8,7 +8,7 @@ const secret = process.env.SECRET;
 const userSignUp = async (req, res) => {
   const { name, email, password } = req.body;
   console.log(req.body)
-  const image = req.file.path || "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg"
+  const image = req.file.path ? req.file.path : "https://img.freepik.com/premium-vector/young-smiling-man-avatar-man-with-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-3d-vector-people-character-illustration-cartoon-minimal-style_365941-860.jpg"
   if (!name || !email || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
